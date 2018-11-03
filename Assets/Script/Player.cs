@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
     private Rigidbody2D rbPlayer;
 
     [SerializeField] public float speed = 5f;
-    [SerializeField] public float velocity = 10f;
+    [SerializeField] public float velocity = 50f;
 
     public bool facingRight;
     public bool isJumping;
@@ -58,13 +58,13 @@ public class Player : MonoBehaviour {
         if (Input.GetKey(KeyCode.LeftArrow)) // Gerak Kiri
         {
             anim.SetBool("isWalking", true); //Animasi Walk
-            FixedUpdate(); //Arah Kiri
+            //FixedUpdate(); //Arah Kiri
             transform.Translate(-speed * Time.deltaTime, 0, 0);
         }
         if (Input.GetKey(KeyCode.RightArrow)) // Gerak Kanan
         {
             anim.SetBool("isWalking", true); //Animasi Walk
-            FixedUpdate();//Arah Kanan
+           //FixedUpdate();//Arah Kanan
             transform.Translate(speed * Time.deltaTime, 0, 0);
         }
     }

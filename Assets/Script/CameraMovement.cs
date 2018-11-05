@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraMovement : MonoBehaviour {
+public class CameraMovement : MonoBehaviour
+{
 
     public GameObject player;       //Public variable to store a reference to the player game object
-
 
     private Vector3 offset;         //Private variable to store the offset distance between the player and camera
 
@@ -18,6 +18,7 @@ public class CameraMovement : MonoBehaviour {
     {
         //Calculate and store the offset value by getting the distance between the player's position and camera's position.
         offset = new Vector3(0, offsetY, offsetZ);
+
     }
 
     // LateUpdate is called after Update each frame

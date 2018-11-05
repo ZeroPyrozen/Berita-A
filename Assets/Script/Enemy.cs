@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    public enum EState : byte { ROAM, CHASE }; // Enemy's State
+    public enum EState : byte { ROAM, ATTACK }; // Enemy's State
 
     public EState initState;    // Enemy's default state
     private EState currState;   // Current state changed in the programming
@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour
     public float standTime = 2f;
     private float standTimer;
 
+    public float health = 10f;
+
     private int playerLayer;
 
     [SerializeField] private bool isFacingRight = true;
@@ -37,7 +39,7 @@ public class Enemy : MonoBehaviour
 
         originPos = transform.position;
 
-        currState = initState;
+        CurrState = initState;
 
         standTimer = standTime;
 
@@ -64,25 +66,25 @@ public class Enemy : MonoBehaviour
 
     private void CheckState()
     {
-        switch (currState)
+        switch (CurrState)
         {
             case EState.ROAM:
                 Roam();
                 break;
-            case EState.CHASE:
-                Chase();
+            case EState.ATTACK :
+                Attack();
                 break;
         }
     }
 
-
+    #region State Function
     private void Roam()
     {
-        if (FoundPlayer())
-        {
-            currState = EState.CHASE;
-            return;
-        }
+        //if (FoundPlayer())
+        //{
+        //    CurrState = EState.CHASE;
+        //    return;
+        //}
 
         if (Mathf.Abs(originPos.x - transform.position.x) < roamRange)
         {
@@ -90,27 +92,31 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            anim.SetBool("isStanding", true);
             if (standTimer > 0)
             {
+                
                 standTimer -= Time.deltaTime;
+                
             }
             else
             {
                 standTimer = standTime;
                 originPos = transform.position;
                 isFacingRight = !isFacingRight; // change direction
+                anim.SetBool("isStanding", false);
                 Move();
             }
         }
     }
 
-
-    private void Chase()
+    private void Attack()
     {
 
     }
+    #endregion
 
-    private bool FoundPlayer()
+    private bool PlayerInRange()
     {
 
 
@@ -126,6 +132,27 @@ public class Enemy : MonoBehaviour
         else
         {
             transform.Translate(Vector2.left * speed * Time.deltaTime);
+        }
+    }
+    /////// PROPERTIES ///////
+    public EState CurrState
+    {
+        get
+        {
+            return this.currState;
+        }
+        set
+        {
+            switch (value)
+            {
+                case EState.ROAM:
+                    anim.SetBool("isWalking", true);
+                    break;
+                case EState.ATTACK:
+                    anim.SetTrigger("attack");
+                    break;
+            }
+            this.currState = value;
         }
     }
 }

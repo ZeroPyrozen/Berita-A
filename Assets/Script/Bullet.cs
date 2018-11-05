@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour {
     [SerializeField] private float range = 2f;
     private float xMove;
     private float yMove;
+    private float damage = 4f;
 
     // Use this for initialization
     void Start() {
@@ -42,5 +43,14 @@ public class Bullet : MonoBehaviour {
     {
         //Debug.Log("intialised");
         this.dir = dir;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<Enemy>().health -= damage;
+            Destroy(gameObject);
+        }
     }
 }

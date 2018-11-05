@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    public enum EState : byte { ROAM, ATTACK }; // Enemy's State
+    public enum EState : byte { ROAM, ATTACK, TESTSTATE }; // Enemy's State
 
     public EState initState;    // Enemy's default state
     private EState currState;   // Current state changed in the programming
@@ -16,7 +16,7 @@ public class Enemy : MonoBehaviour
     private Vector3 originPos;
     private Vector2 currDir;
 
-    private RaycastHit2D hit;
+    private RaycastHit2D found;
 
     public float speed = 1.75f;
     public float roamRange = 2f;
@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
     private int playerLayer;
 
     [SerializeField] private bool isFacingRight = true;
+    private bool firstDeadCheck = false;
 
 
     // Use this for initialization
@@ -66,25 +67,48 @@ public class Enemy : MonoBehaviour
 
     private void CheckState()
     {
-        switch (CurrState)
+        CheckDead();
+        if (!firstDeadCheck)
         {
-            case EState.ROAM:
-                Roam();
-                break;
-            case EState.ATTACK :
-                Attack();
-                break;
+            switch (CurrState)
+            {
+                case EState.ROAM:
+                    Roam();
+                    break;
+                case EState.ATTACK:
+                    Attack();
+                    break;
+            }
         }
+    }
+
+    private void CheckDead()
+    {
+        
+        if(health <= 0 && !firstDeadCheck)
+        {
+            firstDeadCheck = true;
+            GetComponent<Collider2D>().enabled = false;
+            GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            anim.SetTrigger("dead");
+            Invoke("DestroyEnemy", 1.5f);
+        }
+
+    }
+
+    private void DestroyEnemy()
+    {
+        Destroy(gameObject);
     }
 
     #region State Function
     private void Roam()
     {
-        //if (FoundPlayer())
-        //{
-        //    CurrState = EState.CHASE;
-        //    return;
-        //}
+        if (PlayerInRange())
+        {
+            CurrState = EState.ATTACK;
+            return;
+        }
 
         if (Mathf.Abs(originPos.x - transform.position.x) < roamRange)
         {
@@ -112,17 +136,36 @@ public class Enemy : MonoBehaviour
 
     private void Attack()
     {
-
+        Invoke("FinishAttack", 3f);
     }
     #endregion
 
     private bool PlayerInRange()
     {
+        found = Physics2D.Raycast(transform.position, currDir, 0.20f, playerLayer);
 
-
+        if (found)
+        {
+            Debug.Log("Found!");
+            return true;
+        }
         return false;
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            Time.timeScale = 0;
+            Debug.Log("You Lose!");
+        }
+    }
+
+    private void FinishAttack()
+    {
+        CurrState = EState.ROAM;
+    }
+    
     private void Move()
     {
         if (isFacingRight)
@@ -134,6 +177,8 @@ public class Enemy : MonoBehaviour
             transform.Translate(Vector2.left * speed * Time.deltaTime);
         }
     }
+
+
     /////// PROPERTIES ///////
     public EState CurrState
     {
@@ -149,6 +194,7 @@ public class Enemy : MonoBehaviour
                     anim.SetBool("isWalking", true);
                     break;
                 case EState.ATTACK:
+                    anim.SetBool("isWalking", false);
                     anim.SetTrigger("attack");
                     break;
             }

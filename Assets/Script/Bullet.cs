@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour {
     [SerializeField] private float range = 2f;
     private float xMove;
     private float yMove;
-    private float damage = 4f;
+    private float damage = 1.5f;
 
     // Use this for initialization
     void Start() {
@@ -50,6 +50,10 @@ public class Bullet : MonoBehaviour {
         if(collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<Enemy>().health -= damage;
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Wall")
+        {
             Destroy(gameObject);
         }
     }

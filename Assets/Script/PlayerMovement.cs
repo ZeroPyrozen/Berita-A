@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -15,13 +16,14 @@ public class PlayerMovement : MonoBehaviour {
     private Vector2 fireDownPos     = new Vector2 (0.0046f, -0.1365f);
     private Vector2 localUpperBody;
 
-    [SerializeField] private float speed = 2.5f;
-    [SerializeField] private float jumpForce = 250f;
+    [SerializeField] private float speed = 1.5f;
+    [SerializeField] private float jumpForce = 50f;
 
     [SerializeField] private bool facingRight = true; //default : true
     [SerializeField] private bool facingUp = false;
     [SerializeField] private bool facingDown = false;
     private bool isJumping = false;
+    private bool playerDead = false;
 
     #region Get
     public bool getFacingRight()
@@ -71,7 +73,20 @@ public class PlayerMovement : MonoBehaviour {
         if (coll.gameObject.tag == "Ground")
         {
             anim.SetBool("isJumping", false);
-            isJumping = false;  
+            isJumping = false;
+        }
+        if (coll.gameObject.tag == "Spike")
+        {
+            //Destroy(gameObject);
+            playerDead = true;
+            Debug.Log("Mati lu mampus");
+            Time.timeScale = 0;
+        }
+        if (coll.gameObject.tag == "Enemy")
+        {
+            playerDead = true;
+            Debug.Log("You Lose!");
+            Time.timeScale = 0;
         }
     }
     protected void Move()
@@ -165,6 +180,19 @@ public class PlayerMovement : MonoBehaviour {
     }
     #endregion
 
+    private void CheckDead()
+    {
+        if (playerDead && Input.GetKeyDown(KeyCode.R))
+        {
+            Time.timeScale = 1;
+            playerDead = false;
+            //Application.LoadLevel(Application.loadedLevel);
+            Scene scene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(scene.name);
+
+        }
+    }
+
     // Use this for initialization
     void Start () {
         rbPlayer = GetComponent<Rigidbody2D>();
@@ -172,6 +200,7 @@ public class PlayerMovement : MonoBehaviour {
         firePoint.transform.position = fireOriginPos + localUpperBody;
         anim = GetComponent<Animator>();
         anim.SetBool("isWalking", false);
+        playerDead = false;
         
     }
 	
@@ -180,5 +209,7 @@ public class PlayerMovement : MonoBehaviour {
         Move();
         Jump();
         GunDirection();
-	}
+        CheckDead();
+
+    }
 }

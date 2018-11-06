@@ -8,7 +8,7 @@ public class PlayerShoot : MonoBehaviour {
     public GameObject bulletPrefab;
     private GameObject bullet;
 
-    [SerializeField] private float cooldown = 0.45f;
+    [SerializeField] private float cooldown = 0.3f;
 
     private bool facingRight;
     private bool facingUp;
@@ -22,7 +22,7 @@ public class PlayerShoot : MonoBehaviour {
         facingDown  = GetComponent<PlayerMovement>().getFacingDown();
 
 
-        if (Input.GetKeyDown(KeyCode.Z) && canShoot)
+        if (Input.GetKey(KeyCode.Z) && canShoot)
         {
             bullet = (GameObject) Instantiate(bulletPrefab, (Vector2)firePoint.transform.position, Quaternion.identity);
             if (!facingUp && !facingDown)

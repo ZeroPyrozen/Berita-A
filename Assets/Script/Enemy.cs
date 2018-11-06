@@ -30,7 +30,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool isFacingRight = true;
     private bool firstDeadCheck = false;
 
-
     // Use this for initialization
     void Start()
     {
@@ -63,6 +62,8 @@ public class Enemy : MonoBehaviour
         }
 
         CheckState();
+
+        
     }
 
     private void CheckState()
@@ -142,7 +143,7 @@ public class Enemy : MonoBehaviour
 
     private bool PlayerInRange()
     {
-        found = Physics2D.Raycast(transform.position, currDir, 0.20f, playerLayer);
+        found = Physics2D.Raycast(transform.position, currDir, 0.15f, playerLayer);
 
         if (found)
         {
@@ -150,15 +151,6 @@ public class Enemy : MonoBehaviour
             return true;
         }
         return false;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.gameObject.tag == "Player")
-        {
-            Time.timeScale = 0;
-            Debug.Log("You Lose!");
-        }
     }
 
     private void FinishAttack()

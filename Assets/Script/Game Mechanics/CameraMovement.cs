@@ -10,6 +10,10 @@ public class CameraMovement : MonoBehaviour
 
     private Vector3 offset;         //Private variable to store the offset distance between the player and camera
 
+    public float leftX;
+    public float rightX;
+    public float topY;
+    public float botY;
 
     [SerializeField] private float offsetY = 0.75f;
     private float offsetZ = -10f;
@@ -32,8 +36,8 @@ public class CameraMovement : MonoBehaviour
     {
 
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
-        var clampedX = Mathf.Clamp(player.transform.position.x, -9.39f + camWidth, 1.17f - camWidth);
-        var clampedY = Mathf.Clamp(player.transform.position.y + offset.y, 1.95f + camHeight, 7.55f - camHeight);
+        var clampedX = Mathf.Clamp(player.transform.position.x, leftX + camWidth, rightX - camWidth);
+        var clampedY = Mathf.Clamp(player.transform.position.y + offset.y, botY + camHeight, topY - camHeight);
         transform.position = new Vector3(clampedX, clampedY, offset.z);
         
     }

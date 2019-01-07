@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour {
 
+    public PlayerSound sound;
+
     public GameObject firePoint;
     public GameObject bulletPrefab;
     private GameObject bullet;
 
     [SerializeField] private float cooldown = 0.3f;
+    
 
     private bool facingRight;
     private bool facingUp;
@@ -25,6 +28,7 @@ public class PlayerShoot : MonoBehaviour {
         if (Input.GetKey(KeyCode.Z) && canShoot)
         {
             bullet = (GameObject) Instantiate(bulletPrefab, (Vector2)firePoint.transform.position, Quaternion.identity);
+            sound.playShootSound();
             if (!facingUp && !facingDown)
             {
                 if(facingRight) bullet.GetComponent<Bullet>().Initialise(Vector2.right);

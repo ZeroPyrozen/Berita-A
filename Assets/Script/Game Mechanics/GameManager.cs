@@ -8,11 +8,13 @@ public class GameManager : MonoBehaviour {
 
     public Canvas winCanvas;
     public Canvas loseCanvas;
-
+    public Canvas pauseCanvas;
     
     private float loseTimer;
 
     public int dimensionType;
+
+    public static bool pauseChecker;
 
     void Awake()
     {
@@ -27,14 +29,19 @@ public class GameManager : MonoBehaviour {
     }
     
     void Start () {
+        pauseChecker = false;
         dimensionType = 1;
         loseTimer = 0f;
         Time.timeScale = 1;
 	}
 	
 	void Update () {
-
-	}
+        if (Input.GetKeyDown("escape") || pauseChecker)
+        {
+            TogglePause();
+            pauseChecker = false;
+        }
+    }
 
     public void RoundEnd(bool win)
     {
@@ -55,6 +62,20 @@ public class GameManager : MonoBehaviour {
             
         }
         Time.timeScale = 0;
+    }
+
+    private void TogglePause()
+    {
+        if (Time.timeScale == 1f)
+        {
+            Time.timeScale = 0f;
+            pauseCanvas.gameObject.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1f;
+            pauseCanvas.gameObject.SetActive(false);
+        }
     }
 
 }

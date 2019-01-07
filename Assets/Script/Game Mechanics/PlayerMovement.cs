@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private Animator anim;
     private Rigidbody2D rbPlayer;
+    public PlayerSound sound;
 
     public GameObject firePoint;
     public GameObject upperBody;
@@ -63,6 +64,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Space) && !isJumping)
         {
+            sound.playJumpSound();
             rbPlayer.AddForce(Vector2.up * jumpForce, ForceMode2D.Force);
             isJumping = true;
             anim.SetBool("isJumping", true);

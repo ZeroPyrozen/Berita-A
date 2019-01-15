@@ -3412,6 +3412,7 @@ GameObject:
   - component: {fileID: 893594694}
   - component: {fileID: 893594698}
   - component: {fileID: 893594697}
+  - component: {fileID: 893594699}
   m_Layer: 5
   m_Name: Background 1st level
   m_TagString: Enemy
@@ -3535,6 +3536,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893594692}
   m_CullTransparentMesh: 0
+--- !u!95 &893594699
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893594692}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 76d69118415932144b5fd48e67eaa601, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &946567019
 GameObject:
   m_ObjectHideFlags: 0
@@ -8634,6 +8654,11 @@ PrefabInstance:
       propertyPath: dimensionChange
       value: 
       objectReference: {fileID: 461336548}
+    - target: {fileID: 1271883976035151231, guid: 254ba797efa971a478cacbf0e3d59fde,
+        type: 3}
+      propertyPath: background
+      value: 
+      objectReference: {fileID: 893594692}
     - target: {fileID: 1218268224683243947, guid: 254ba797efa971a478cacbf0e3d59fde,
         type: 3}
       propertyPath: m_Offset.y

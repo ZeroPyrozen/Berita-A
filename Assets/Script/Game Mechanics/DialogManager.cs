@@ -23,9 +23,7 @@ public class DialogManager : MonoBehaviour
         {
             DBox.SetActive(false);
             dialogueActive = false;
-
             currentLine = 0;
-
         }
         dText.text = dialogueLines[currentLine];
     }

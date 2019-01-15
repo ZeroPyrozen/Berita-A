@@ -23,7 +23,7 @@ public class DialogueTrigger : MonoBehaviour
                 dMan.dialogueLines = dialogLines;
                 dMan.currentLine = 0;
                 dMan.ShowDialogue();
-                dialogBox.SetActive(false);
+                //dialogBox.SetActive(false);
             }
         }
 

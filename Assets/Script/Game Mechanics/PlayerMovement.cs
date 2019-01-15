@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private float speed = 1.5f;
     [SerializeField] private float jumpForce = 50f;
 
+    public bool startFaceLeft = false;
     [SerializeField] private bool facingRight = true; //default : true
     [SerializeField] private bool facingUp = false;
     [SerializeField] private bool facingDown = false;
@@ -206,7 +207,10 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-
+    private void StartFacingLeft()
+    {
+        Flip();
+    }
 
     // Use this for initialization
     void Start () {
@@ -216,7 +220,7 @@ public class PlayerMovement : MonoBehaviour {
         anim = GetComponent<Animator>();
         anim.SetBool("isWalking", false);
         playerDead = false;
-        
+        if (startFaceLeft) StartFacingLeft();
     }
 	
 	// Update is called once per frame

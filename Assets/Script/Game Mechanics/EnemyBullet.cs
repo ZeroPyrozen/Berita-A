@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour {
-
+public class EnemyBullet : MonoBehaviour
+{
     private Vector2 dir = new Vector2(0, 0);
     private Vector2 originPos;
 
@@ -13,22 +13,23 @@ public class Bullet : MonoBehaviour {
     private float yMove;
     private float damage = 1.5f;
 
-
+    public float speedMod = 1;
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         originPos = transform.position;
         //dir = new Vector2(0, 0);
     }
 
     // Update is called once per frame
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         if (dir.x != 0 || dir.y != 0)
         {
             if (xMove < range && yMove < range)
             {
-                //Bullet movement
-                transform.Translate(dir * speed * Time.deltaTime);
+                transform.Translate(dir * speed  * Time.deltaTime);
             }
         }
     }
@@ -39,7 +40,6 @@ public class Bullet : MonoBehaviour {
         yMove = Mathf.Abs(transform.position.y - originPos.y);
         if (xMove >= range || yMove >= range)
         {
-            //Bullet has reached the end point
             Destroy(gameObject);
         }
     }
@@ -47,28 +47,19 @@ public class Bullet : MonoBehaviour {
     {
         //Debug.Log("intialised");
         this.dir = dir;
-        //Direction initialization
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.name == "Upper Body" || collision.gameObject.name == "Feet" 
+            ||collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<Enemy>().health -=
-                damage * collision.gameObject.GetComponent<Enemy>().dmgModif;
-            //collision.gameObject.GetComponent<PlayerMovement>().playerDead = true;
-            Destroy(gameObject);
-        }
-        if(collision.gameObject.tag == "EnemyHunter")
-        {
-            collision.gameObject.GetComponent<EnemyHunter>().health -=
-                            damage * collision.gameObject.GetComponent<EnemyHunter>().dmgModif;
-            //collision.gameObject.GetComponent<PlayerMovement>().playerDead = true;
+            Debug.Log("Hit");
+            collision.gameObject.GetComponent<PlayerMovement>().playerDead = true;
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Wall")
         {
-            //Destroy bullet when it hit ground or wall
             Destroy(gameObject);
         }
     }

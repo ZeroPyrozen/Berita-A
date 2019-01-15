@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] private bool facingUp = false;
     [SerializeField] private bool facingDown = false;
     private bool isJumping = false;
-    private bool playerDead = false;
+    public bool playerDead = false;
 
     #region Get Direction
     public bool GetFacingRight()
@@ -172,7 +172,7 @@ public class PlayerMovement : MonoBehaviour {
             anim.SetBool("isJumping", false);
             isJumping = false;
         }
-        if (coll.gameObject.tag == "Spike" || coll.gameObject.tag == "Enemy")
+        if (coll.gameObject.tag == "Spike" || coll.gameObject.tag == "Enemy" || coll.gameObject.tag == "EnemyHunter")
         {
             playerDead = true;
             DeadAnim();
@@ -191,7 +191,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         transform.Find("Upper Body").gameObject.SetActive(false);
         transform.Find("Feet").gameObject.SetActive(false);
-        rbPlayer.gravityScale = 0;
+        rbPlayer.bodyType = RigidbodyType2D.Static;
         anim.SetTrigger("dead");
     }
        

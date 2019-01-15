@@ -7,14 +7,28 @@ public class DialogManager : MonoBehaviour
 {
     public GameObject DBox;
     public Text dText;
-
+    public GameObject Player;
+    private float speed;
+    private float jumpForce;
     public bool dialogueActive;
+
+    private bool playerStopped = false;
 
     public string[] dialogueLines;
     public int currentLine;
 
+    public bool stopsPlayer = false;
+
     void Update()
     {
+        if(dialogueActive&&playerStopped==false&&stopsPlayer)
+        {
+            speed = Player.GetComponent<PlayerMovement>().speed;
+            jumpForce = Player.GetComponent<PlayerMovement>().jumpForce;
+            Player.GetComponent<PlayerMovement>().speed = 0;
+            Player.GetComponent<PlayerMovement>().jumpForce = 0;
+            playerStopped = true;
+        }
         if(dialogueActive&&(Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.E)))
         {
             currentLine++;
@@ -24,6 +38,9 @@ public class DialogManager : MonoBehaviour
             DBox.SetActive(false);
             dialogueActive = false;
             currentLine = 0;
+            Player.GetComponent<PlayerMovement>().speed = speed;
+            Player.GetComponent<PlayerMovement>().jumpForce = jumpForce;
+            playerStopped = false;
         }
         dText.text = dialogueLines[currentLine];
     }
@@ -34,8 +51,9 @@ public class DialogManager : MonoBehaviour
         DBox.SetActive(true);
         dText.text = dialogue;
     }
-    public void ShowDialogue()
+    public void ShowDialogue(bool stopsPlayer)
     {
+        this.stopsPlayer = stopsPlayer;
         Debug.Log("Dialog Muncul");
         dialogueActive = true;
         DBox.SetActive(true);

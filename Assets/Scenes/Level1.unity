@@ -6787,7 +6787,7 @@ GameObject:
   - component: {fileID: 1774448485}
   - component: {fileID: 1774448484}
   m_Layer: 0
-  m_Name: Object 4
+  m_Name: Dimension Explanation
   m_TagString: InteractDialogue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6825,6 +6825,7 @@ MonoBehaviour:
   - affects enemy's power...(E)
   - Press "C" to revert dimension!(E)
   dialogBox: {fileID: 1774448482}
+  stopsPlayer: 0
 --- !u!61 &1774448485
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7725,6 +7726,7 @@ MonoBehaviour:
   dialogLines:
   - Oopsie!
   dialogBox: {fileID: 1882996941}
+  stopsPlayer: 0
 --- !u!61 &1882996946
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7878,6 +7880,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5911090583109101444, guid: e763a5f3751dde5498421cecbf56f89e,
+        type: 3}
+      propertyPath: m_Name
+      value: Change Dimension Instruction
+      objectReference: {fileID: 0}
     - target: {fileID: 5911090583109101447, guid: e763a5f3751dde5498421cecbf56f89e,
         type: 3}
       propertyPath: m_Offset.y
@@ -7948,6 +7955,11 @@ PrefabInstance:
       propertyPath: dialogLines.Array.data[0]
       value: Dimension Collected!
       objectReference: {fileID: 0}
+    - target: {fileID: 5911090583457899576, guid: e763a5f3751dde5498421cecbf56f89e,
+        type: 3}
+      propertyPath: stopsPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5911090584458524644, guid: e763a5f3751dde5498421cecbf56f89e,
         type: 3}
       propertyPath: dialogLines.Array.size
@@ -7962,6 +7974,21 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogLines.Array.data[1]
       value: Press "Z" to Shoot(E)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911090583355621267, guid: e763a5f3751dde5498421cecbf56f89e,
+        type: 3}
+      propertyPath: m_Name
+      value: Jump Warning
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911090583457899582, guid: e763a5f3751dde5498421cecbf56f89e,
+        type: 3}
+      propertyPath: m_Name
+      value: Get Dimension
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911090584458524649, guid: e763a5f3751dde5498421cecbf56f89e,
+        type: 3}
+      propertyPath: m_Name
+      value: Enemy Warning
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e763a5f3751dde5498421cecbf56f89e, type: 3}

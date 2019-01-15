@@ -194,6 +194,7 @@ MonoBehaviour:
   - Head to the above...(E)
   - God is waiting for you...(E)
   dialogBox: {fileID: 158362380}
+  stopsPlayer: 1
 --- !u!61 &158362383
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -207,7 +208,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.60692, y: 0.73194945}
+  m_Offset: {x: -0.4696231, y: 0.73194945}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -218,7 +219,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.20754957, y: 1.1206753}
+  m_Size: {x: 0.045609474, y: 1.1206753}
   m_EdgeRadius: 0
 --- !u!1 &254335780
 GameObject:
@@ -2138,21 +2139,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6143315096725261271, guid: 4767cd01a9164c147bbd14eb829e6ec2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6143315096811653833, guid: 4767cd01a9164c147bbd14eb829e6ec2,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6143315097415820628, guid: 4767cd01a9164c147bbd14eb829e6ec2,
-        type: 3}
-      propertyPath: m_Text
-      value: Now you must save the Cosmos!
-      objectReference: {fileID: 0}
     - target: {fileID: 6143315098209257218, guid: 4767cd01a9164c147bbd14eb829e6ec2,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2188,11 +2174,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadByIndex
       objectReference: {fileID: 0}
-    - target: {fileID: 6143315096811653834, guid: 4767cd01a9164c147bbd14eb829e6ec2,
-        type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6143315096811653835, guid: 4767cd01a9164c147bbd14eb829e6ec2,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2202,6 +2183,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143315096725261271, guid: 4767cd01a9164c147bbd14eb829e6ec2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143315096811653833, guid: 4767cd01a9164c147bbd14eb829e6ec2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143315096811653834, guid: 4767cd01a9164c147bbd14eb829e6ec2,
+        type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143315097415820628, guid: 4767cd01a9164c147bbd14eb829e6ec2,
+        type: 3}
+      propertyPath: m_Text
+      value: Now you must save the Cosmos!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4767cd01a9164c147bbd14eb829e6ec2, type: 3}
@@ -3182,10 +3183,40 @@ PrefabInstance:
       propertyPath: dialogLines.Array.data[1]
       value: As you see the world is corrupted(E)
       objectReference: {fileID: 0}
+    - target: {fileID: 5911090583109101446, guid: e763a5f3751dde5498421cecbf56f89e,
+        type: 3}
+      propertyPath: stopsPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5911090583568271110, guid: e763a5f3751dde5498421cecbf56f89e,
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911090583109101444, guid: e763a5f3751dde5498421cecbf56f89e,
+        type: 3}
+      propertyPath: m_Name
+      value: God Voice
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911090584458524644, guid: e763a5f3751dde5498421cecbf56f89e,
+        type: 3}
+      propertyPath: stopsPlayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911090583355621267, guid: e763a5f3751dde5498421cecbf56f89e,
+        type: 3}
+      propertyPath: m_Name
+      value: Pray Instruction
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911090583457899582, guid: e763a5f3751dde5498421cecbf56f89e,
+        type: 3}
+      propertyPath: m_Name
+      value: Backstory World
+      objectReference: {fileID: 0}
+    - target: {fileID: 5911090584458524649, guid: e763a5f3751dde5498421cecbf56f89e,
+        type: 3}
+      propertyPath: m_Name
+      value: Jump Instruction
       objectReference: {fileID: 0}
     - target: {fileID: 5911090583980505217, guid: e763a5f3751dde5498421cecbf56f89e,
         type: 3}
@@ -3197,6 +3228,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -85
       objectReference: {fileID: 0}
+    - target: {fileID: 5911090584537977002, guid: e763a5f3751dde5498421cecbf56f89e,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1166505362454376713}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e763a5f3751dde5498421cecbf56f89e, type: 3}
 --- !u!4 &5911090583677358189 stripped

@@ -18,8 +18,8 @@ public class PlayerMovement : MonoBehaviour {
     private Vector2 localUpperBody;
 
 
-    [SerializeField] private float speed = 1.5f;
-    [SerializeField] private float jumpForce = 50f;
+    [SerializeField] public float speed = 1.5f;
+    [SerializeField] public float jumpForce = 50f;
 
     public bool startFaceLeft = false;
     [SerializeField] private bool facingRight = true; //default : true

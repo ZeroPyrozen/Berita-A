@@ -8,7 +8,7 @@ public class DialogueTrigger : MonoBehaviour
     private DialogManager dMan;
     public string[] dialogLines;
     public GameObject dialogBox;
-   
+    public bool stopsPlayer = false;
     private void Start()
     {
         dMan = FindObjectOfType<DialogManager>();
@@ -22,7 +22,7 @@ public class DialogueTrigger : MonoBehaviour
             {
                 dMan.dialogueLines = dialogLines;
                 dMan.currentLine = 0;
-                dMan.ShowDialogue();
+                dMan.ShowDialogue(stopsPlayer);
                 //dialogBox.SetActive(false);
             }
         }

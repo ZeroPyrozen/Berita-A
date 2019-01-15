@@ -9,6 +9,7 @@ TagManager:
   - Spike
   - Wall
   - Win
+  - InteractDialogue
   layers:
   - Default
   - TransparentFX

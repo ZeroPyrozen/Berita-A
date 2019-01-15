@@ -21,7 +21,7 @@ public class PlayerSkill : MonoBehaviour {
 	
 	void Update () {
         if(cooldown>0) cooldown -= Time.deltaTime;
-        Skill();
+        //Skill();
 	}
 
     private void Skill()

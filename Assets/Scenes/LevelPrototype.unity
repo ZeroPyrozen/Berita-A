@@ -8768,12 +8768,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1232306655}
-    - target: {fileID: 6143315096811653835, guid: 4767cd01a9164c147bbd14eb829e6ec2,
+    - target: {fileID: 6143315096725261273, guid: 4767cd01a9164c147bbd14eb829e6ec2,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1232306655}
-    - target: {fileID: 6143315096725261273, guid: 4767cd01a9164c147bbd14eb829e6ec2,
+    - target: {fileID: 6143315096811653835, guid: 4767cd01a9164c147bbd14eb829e6ec2,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

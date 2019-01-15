@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour {
     private Vector2 fireDownPos     = new Vector2 (0.0046f, -0.1365f);
     private Vector2 localUpperBody;
 
+
     [SerializeField] private float speed = 1.5f;
     [SerializeField] private float jumpForce = 50f;
 
@@ -176,7 +177,6 @@ public class PlayerMovement : MonoBehaviour {
             Debug.Log("Mati lu mampus");
             Invoke("RoundEnd", 1.5f);
         }
-     
     }
 
     private void RoundEnd()

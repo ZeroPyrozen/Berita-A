@@ -10,6 +10,7 @@ TagManager:
   - Wall
   - Win
   - InteractDialogue
+  - EnemyHunter
   layers:
   - Default
   - TransparentFX

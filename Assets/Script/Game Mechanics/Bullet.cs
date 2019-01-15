@@ -13,6 +13,8 @@ public class Bullet : MonoBehaviour {
     private float yMove;
     private float damage = 1.5f;
 
+    
+
     // Use this for initialization
     void Start() {
         originPos = transform.position;
@@ -49,7 +51,16 @@ public class Bullet : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<Enemy>().health -= damage * collision.gameObject.GetComponent<Enemy>().dmgModif;
+            collision.gameObject.GetComponent<Enemy>().health -= 
+                damage * collision.gameObject.GetComponent<Enemy>().dmgModif;
+            //collision.gameObject.GetComponent<PlayerMovement>().playerDead = true;
+            Destroy(gameObject);
+        }
+        if(collision.gameObject.tag == "EnemyHunter")
+        {
+            collision.gameObject.GetComponent<EnemyHunter>().health -=
+                            damage * collision.gameObject.GetComponent<EnemyHunter>().dmgModif;
+            //collision.gameObject.GetComponent<PlayerMovement>().playerDead = true;
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Wall")

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerSkill : MonoBehaviour {
 
-    public GameObject background;
-    private Animator bgAnim;
     public Canvas dimensionChange;
 
     [SerializeField] private float cooldown;
@@ -16,7 +14,6 @@ public class PlayerSkill : MonoBehaviour {
 	void Start () {
         changed = false;
         cooldown = 0f;
-        bgAnim = background.GetComponent<Animator>();
 	}
 	
 	void Update () {
@@ -33,13 +30,11 @@ public class PlayerSkill : MonoBehaviour {
         }
         if (changed)
         {
-            bgAnim.SetBool("changeDim", true);
             dimensionChange.gameObject.SetActive(true);
             GameManager.instance.dimensionType = 2;
         }
         else
         {
-            bgAnim.SetBool("changeDim", false);
             dimensionChange.gameObject.SetActive(false);
             GameManager.instance.dimensionType = 1;
         }

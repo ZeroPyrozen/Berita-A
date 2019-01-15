@@ -319,6 +319,8 @@
     <Compile Include="Assets\Script\CanvasToggler.cs" />
     <Compile Include="Assets\Script\Game Mechanics\Bullet.cs" />
     <Compile Include="Assets\Script\Game Mechanics\CameraMovement.cs" />
+    <Compile Include="Assets\Script\Game Mechanics\DialogManager.cs" />
+    <Compile Include="Assets\Script\Game Mechanics\DialogueTrigger.cs" />
     <Compile Include="Assets\Script\Game Mechanics\Enemy.cs" />
     <Compile Include="Assets\Script\Game Mechanics\GameManager.cs" />
     <Compile Include="Assets\Script\Game Mechanics\PlayerMovement.cs" />

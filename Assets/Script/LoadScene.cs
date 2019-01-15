@@ -9,4 +9,9 @@ public class LoadScene : MonoBehaviour {
     {
         SceneManager.LoadScene(sceneIndex);
     }
+
+    public void LoadByName(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
 }

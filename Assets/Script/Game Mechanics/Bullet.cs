@@ -25,6 +25,7 @@ public class Bullet : MonoBehaviour {
         {
             if (xMove < range && yMove < range)
             {
+                //Bullet movement
                 transform.Translate(dir * speed * Time.deltaTime);
             }
         }
@@ -36,6 +37,7 @@ public class Bullet : MonoBehaviour {
         yMove = Mathf.Abs(transform.position.y - originPos.y);
         if (xMove >= range || yMove >= range)
         {
+            //Bullet has reached the end point
             Destroy(gameObject);
         }
     }
@@ -43,17 +45,20 @@ public class Bullet : MonoBehaviour {
     {
         //Debug.Log("intialised");
         this.dir = dir;
+        //Direction initialization
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Enemy")
         {
+            //Reduce enemy's health when bullet hit enemy
             collision.gameObject.GetComponent<Enemy>().health -= damage * collision.gameObject.GetComponent<Enemy>().dmgModif;
             Destroy(gameObject);
         }
         if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Wall")
         {
+            //Destroy bullet when it hit ground or wall
             Destroy(gameObject);
         }
     }

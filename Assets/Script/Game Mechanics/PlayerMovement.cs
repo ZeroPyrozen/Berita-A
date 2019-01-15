@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour {
     private bool isJumping = false;
     private bool playerDead = false;
 
-    #region Get
+    #region Get Direction
     public bool GetFacingRight()
     {
         return this.facingRight;
@@ -168,6 +168,7 @@ public class PlayerMovement : MonoBehaviour {
     {
         if (coll.gameObject.tag == "Ground")
         {
+            Debug.Log("Player hit the ground");
             anim.SetBool("isJumping", false);
             isJumping = false;
         }
@@ -175,7 +176,7 @@ public class PlayerMovement : MonoBehaviour {
         {
             playerDead = true;
             DeadAnim();
-            Debug.Log("Mati lu mampus");
+            Debug.Log("Player is dead");
             Invoke("RoundEnd", 1.5f);
         }
     }
@@ -188,7 +189,6 @@ public class PlayerMovement : MonoBehaviour {
 
     private void DeadAnim()
     {
-
         transform.Find("Upper Body").gameObject.SetActive(false);
         transform.Find("Feet").gameObject.SetActive(false);
         rbPlayer.gravityScale = 0;
@@ -225,6 +225,7 @@ public class PlayerMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //Main game loop
         if (!playerDead)
         {
             Move();

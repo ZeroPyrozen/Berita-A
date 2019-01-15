@@ -23,6 +23,7 @@ public class DialogManager : MonoBehaviour
     {
         if(dialogueActive&&playerStopped==false&&stopsPlayer)
         {
+            //Stop player when he encounter something important
             speed = Player.GetComponent<PlayerMovement>().speed;
             jumpForce = Player.GetComponent<PlayerMovement>().jumpForce;
             Player.GetComponent<PlayerMovement>().speed = 0;
@@ -31,10 +32,12 @@ public class DialogManager : MonoBehaviour
         }
         if(dialogueActive&&(Input.GetKeyDown(KeyCode.Space)||Input.GetKeyDown(KeyCode.E)))
         {
+            //Next dialogue
             currentLine++;
         }
         if(currentLine >= dialogueLines.Length)
         {
+            //Resetting player movement and make dialog box disappear
             DBox.SetActive(false);
             dialogueActive = false;
             currentLine = 0;
@@ -46,7 +49,7 @@ public class DialogManager : MonoBehaviour
     }
     public void ShowBox(string dialogue)
     {
-        Debug.Log("Box Muncul");
+        Debug.Log("Dialog Box Muncul");
         dialogueActive = true;
         DBox.SetActive(true);
         dText.text = dialogue;

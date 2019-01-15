@@ -17,7 +17,7 @@ public class DialogueTrigger : MonoBehaviour
     {
         if (collision.gameObject.name == "Feet")
         {
-            Debug.Log("Masuk Dialog");
+            Debug.Log("Masuk ke Dialog");
             if(!dMan.dialogueActive)
             {
                 dMan.dialogueLines = dialogLines;

@@ -1,12 +1,16 @@
 Win64
 PlayerPath?
-E:/Games/Berita A Final Presentation/Berita A.exe
+E:/Games/The Dimension of Cosmos/Berita A.exe
 SceneListBegin?
-Assets/Scenes/LevelPrototype.unity
 Assets/Scenes/MainMenu.unity
 Assets/Scenes/Prologue.unity
+Assets/Scenes/Level1.unity
+Assets/Scenes/Level2.unity
+Assets/Scenes/Level3.unity
 SceneListEnd?
 984dcc0ba3707b7691fbdca8ff508d28 Unity.TextMeshPro.dll:TMPro.TMP_SelectionCaret
+6898e41a0f595ac8df4b9597ef2e260f Assembly-CSharp.dll:.EnemyHunter
+4d6cd3a77beeccb3b1a3ad26f4e42f6c Assembly-CSharp.dll:.DialogManager
 01aa15e337e3a9c62f15153dfac6d589 Unity.TextMeshPro.dll:TMPro.TMP_Dropdown
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 06f0fef534ca4c1d6064fd77a26bf722 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
@@ -55,6 +59,7 @@ fc108ce7d98c40ac0907e8ca7f500c76 UnityEngine.UI.dll:UnityEngine.UI.Text
 0fd6822f6177297bd0eb4d83cc7a9030 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
+8fa55179340bb4b60bfd03d586f295f5 Assembly-CSharp.dll:.EnemyShoot
 98ad81e9f689a492509f07e75b810aaa Unity.TextMeshPro.dll:TMPro.TMP_InputField
 f32d1d61e48bba08149fd1b81df8d6f5 Assembly-CSharp.dll:Tiled2Unity.GroupLayer
 a2037a6d3d69e2ae4365852f05289f5a Assembly-CSharp.dll:Tiled2Unity.RectangleObject
@@ -126,7 +131,7 @@ fdf1b2b7e434ed51689b0e0195bc7090 Assembly-CSharp.dll:.CameraMovement
 303ad70ce203ad874efe2965d0fbcff9 Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsEventTracker
 7fb9de8dcf73854b6b328eca1f7a6e6d Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsTracker
 3e612373c86e8e2e2ace969c7d5ca0f9 Assembly-CSharp.dll:.PlayerShoot
-e78aaf572519ee844052a9205baa11a4 Assembly-CSharp.dll:.PlayerSkill
+8aad9fb30e160952beec7a78204b4c31 Assembly-CSharp.dll:.PlayerSkill
 94017dcc9f00fe671ea7dc427b4da011 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
 0077fc8e4fbae67f80e80ebd534de5a0 Vuforia.UnityExtensions.dll:Vuforia.AnchorBehaviour
 f8b139fcde9fda6214245df246415cc7 Vuforia.UnityExtensions.dll:Vuforia.AnchorInputListenerBehaviour
@@ -197,7 +202,7 @@ ae91c545dea6ac849dd81c4b660c68ca Vuforia.UnityExtensions.dll:Vuforia.VuforiaConf
 69167579cf7fcbb2676fc1e675963dcd Vuforia.UnityExtensions.dll:Vuforia.VuMarkBehaviour
 fbbf64dcbe0662e3eda1dec45ea8f895 Vuforia.UnityExtensions.dll:Vuforia.WireframeBehaviour
 71bb6a6b6c8f052f948db64c7dd3ca4f Vuforia.UnityExtensions.dll:Vuforia.WireframeTrackableEventHandler
-bc5b5ef26ac579c8241e535f4ade1367 Assembly-CSharp.dll:.PlayerMovement
+3a5d6e46be79537fba250a65033e957c Assembly-CSharp.dll:.PlayerMovement
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.PauseToggle
 02645cd2809521863e990f79b565042a Assembly-CSharp.dll:Tiled2Unity.TiledMap
 b3ab2106268377ffe25dd18ac23dca28 Unity.TextMeshPro.dll:TMPro.TMP_Asset
@@ -242,8 +247,10 @@ fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEng
 fb6a1ea36b4f6ef5948d283d93760765 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSoundfieldExtension
 5b0391b7e3d9ea9db6c0a8fbd0ca23f6 UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioSourceExtension
+819712717d1b8401fa2fccc27f3eec25 Assembly-CSharp.dll:.DialogueTrigger
 f32d1d61e48bba08149fd1b81df8d6f5 Assembly-CSharp.dll:Tiled2Unity.TileLayer
 a4f0a4f62100f1a4fb5cbe0e00dde83f Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
+45fd9ea1be94413aae7b9b34d7b2c05d Assembly-CSharp.dll:.EnemyBullet
 5fc094978ce3e3591a7500ed380d854a Unity.Analytics.DataPrivacy.dll:UnityEngine.Analytics.DataPrivacyButton
 d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 bb5c931957ad134a50a217555e8e0f4a Assembly-CSharp.dll:.Bullet

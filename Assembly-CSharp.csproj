@@ -67,6 +67,9 @@
     <Compile Include="Assets\Script\Game Mechanics\DialogManager.cs" />
     <Compile Include="Assets\Script\Game Mechanics\DialogueTrigger.cs" />
     <Compile Include="Assets\Script\Game Mechanics\Enemy.cs" />
+    <Compile Include="Assets\Script\Game Mechanics\EnemyBullet.cs" />
+    <Compile Include="Assets\Script\Game Mechanics\EnemyHunter.cs" />
+    <Compile Include="Assets\Script\Game Mechanics\EnemyShoot.cs" />
     <Compile Include="Assets\Script\Game Mechanics\GameManager.cs" />
     <Compile Include="Assets\Script\Game Mechanics\PlayerMovement.cs" />
     <Compile Include="Assets\Script\Game Mechanics\PlayerShoot.cs" />

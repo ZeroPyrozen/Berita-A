@@ -98,6 +98,7 @@
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TileObject.cs" />
     <Compile Include="Assets\Tiled2Unity\Scripts\Runtime\TmxObject.cs" />
     <None Include="Assets\Tiled2Unity\Shaders\shaDiffuseDepth-Instanced.shader" />
+    <None Include="Assets\Tiled2Unity\Imported\Level 3.tiled2unity.xml" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\Tiled2Unity\Shaders\shaDefault.shader" />

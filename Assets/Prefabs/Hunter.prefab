@@ -128,7 +128,7 @@ MonoBehaviour:
   roamRange: 0.8
   standTime: 2
   standTimer: 0
-  health: 10
+  health: 7.5
   strongDimension: 0
   dmgModif: 0
   isFacingRight: 1
